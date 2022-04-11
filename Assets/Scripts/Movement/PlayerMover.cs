@@ -9,7 +9,7 @@ public class PlayerMover : MonoBehaviour
     Animation PlayerAnimation;
 
     // Variables
-    [SerializeField] float playerSpeed = 0.02f;
+    [SerializeField] float playerSpeed = 5f;
     Vector2 inputAxis = new Vector2(0f, 0f);
     Vector2 inputAxisAbs = new Vector2(0f, 0f);
     string previousSide = "front";
@@ -74,12 +74,12 @@ public class PlayerMover : MonoBehaviour
 
     Vector2 CalculateDiagonalModifier()
     {
-        Vector2 diagonalModifier = new Vector2(1f, 1f);
+        Vector2 diagonalModifier = new Vector2(1f, 1f) * Time.deltaTime; // deltaTime makes sure movement is frame-independent
 
         if (inputAxisAbs.x == 1 && inputAxisAbs.y == 1) // if the player goes diagonally
         {
-            diagonalModifier.x = DIAGONAL_MODIFIER;
-            diagonalModifier.y = DIAGONAL_MODIFIER / 2;
+            diagonalModifier.x *= DIAGONAL_MODIFIER;
+            diagonalModifier.y *= DIAGONAL_MODIFIER / 2;
         }
 
         return diagonalModifier;
@@ -100,6 +100,6 @@ public class PlayerMover : MonoBehaviour
         UpdateAxis();
         RotateIfPlayerIsTurning();
         ApplyAnimation();
-        PlayerTransform.position = PlayerTransform.position + CalculateDistance();
+        PlayerTransform.position += CalculateDistance();
     }
 }

@@ -26,14 +26,6 @@ public class Item
         Quantity = quantity;
     }
 
-    public Item(string name, int price, int quantity, GameObject uiObject)
-    {
-        Name = name;
-        Price = price;
-        Quantity = quantity;
-        UIObject = uiObject;
-    }
-
     public static List<Item> Inventory = new List<Item>();
 
     static Dictionary<string, Item> ItemDictionary = new Dictionary<string, Item>()
@@ -98,6 +90,7 @@ public class Item
 public class InventoryModule : MonoBehaviour, IPointerClickHandler
 {
     // Constants or Constant Objects (their properties might change, but they're always the same object)
+    [Header("UI Elements")]
     [SerializeField] RectTransform Canvas;
     [SerializeField] RectTransform UIItemHolder;
     [SerializeField] Vector2 UIItemOffset = new Vector2(25, 25);
@@ -108,6 +101,8 @@ public class InventoryModule : MonoBehaviour, IPointerClickHandler
     [SerializeField] Vector2 DropMenuOffset = new Vector2(0, -10);
     [SerializeField] GameObject UIItemTemplate;
     RectTransform UItemTemplateTransform;
+    [Header("World Elements")]
+    [SerializeField] Transform PlayerTransform;
     [SerializeField] GameObject WorldItemTemplate;
 
     // Variables
@@ -210,6 +205,7 @@ public class InventoryModule : MonoBehaviour, IPointerClickHandler
         for (int i = 0; i < uniqueItemCount; i++)
         {
             ConvertItemToUIItem(Item.Inventory[i], i);
+            UIItemHolder.sizeDelta = CalculateHolderSize();
         }
     }
 
@@ -220,15 +216,17 @@ public class InventoryModule : MonoBehaviour, IPointerClickHandler
         RefreshInventory();
     }
 
-    void MoveSelectedItemFromInventoryToWorld()
+    void DropItemFromInventory()
     {
         string name = selectedItem.Name;
         int quantity = int.Parse(DropMenuInputField.text);
 
         GameObject worldItem = Instantiate(WorldItemTemplate, this.transform.parent);
         worldItem.name = name;
+        worldItem.transform.position = PlayerTransform.position;
         ItemScript worldItemScript = worldItem.GetComponent<ItemScript>();
         worldItemScript.inventoryModule = this;
+        worldItemScript.playerTransform = PlayerTransform;
         worldItemScript.quantity = quantity;
         SpriteRenderer worldItemSpriteRenderer = worldItem.GetComponent<SpriteRenderer>();
         worldItemSpriteRenderer.sprite = Resources.Load<Sprite>("Images/" + name);
@@ -289,6 +287,6 @@ public class InventoryModule : MonoBehaviour, IPointerClickHandler
 
     public void OnDropButtonClick()
     {
-        MoveSelectedItemFromInventoryToWorld();
+        DropItemFromInventory();
     }
 }

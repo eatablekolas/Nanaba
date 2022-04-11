@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5bf7c34a0dc4e6348bea04faa70406ee, type: 3}
+  m_Name: test_robot_sprite_library
+  m_EditorClassIdentifier: 
+  m_Labels:
+  - m_Name: Idle
+    m_Hash: 2081823275
+    m_CategoryList:
+    - m_Name: front
+      m_Hash: -17079562
+      m_Sprite: {fileID: 21300000, guid: 98642a9c6cd31bf47bc14dc4dfa61719, type: 3}
+    - m_Name: back
+      m_Hash: 1842266423
+      m_Sprite: {fileID: 21300000, guid: 456ab320d97f0c745a64ab46f253020e, type: 3}

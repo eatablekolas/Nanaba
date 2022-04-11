@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5bf7c34a0dc4e6348bea04faa70406ee, type: 3}
+  m_Name: test_guy_sprite_library
+  m_EditorClassIdentifier: 
+  m_Labels:
+  - m_Name: Idle
+    m_Hash: 2081823275
+    m_CategoryList:
+    - m_Name: front
+      m_Hash: -17079562
+      m_Sprite: {fileID: 21300000, guid: 9874066b643d51d48b7cc09960bbc373, type: 3}
+    - m_Name: back
+      m_Hash: 1842266423
+      m_Sprite: {fileID: 21300000, guid: 33910f3522bfdad409cffc059cabde8d, type: 3}
+  - m_Name: Walk Front
+    m_Hash: 52130450
+    m_CategoryList:
+    - m_Name: 1
+      m_Hash: -2082672713
+      m_Sprite: {fileID: 21300000, guid: 9914921d08319ed49bd11878068fca34, type: 3}
+    - m_Name: 2
+      m_Hash: 450215437
+      m_Sprite: {fileID: 21300000, guid: 9874066b643d51d48b7cc09960bbc373, type: 3}
+    - m_Name: 3
+      m_Hash: 1842515611
+      m_Sprite: {fileID: 21300000, guid: fa012a0eb4fce73489e86f2accabbdf8, type: 3}
+  - m_Name: Walk Back
+    m_Hash: -282599635
+    m_CategoryList:
+    - m_Name: 1
+      m_Hash: -2082672713
+      m_Sprite: {fileID: 21300000, guid: cec0cf96fca53b84e8597ee55242a99b, type: 3}
+    - m_Name: 2
+      m_Hash: 450215437
+      m_Sprite: {fileID: 21300000, guid: 33910f3522bfdad409cffc059cabde8d, type: 3}
+    - m_Name: 3
+      m_Hash: 1842515611
+      m_Sprite: {fileID: 21300000, guid: d4470abde92873040b65fac42d912eac, type: 3}
